@@ -17,7 +17,7 @@ const MenuItem: React.FC<{ route: RouteItem; parentPath?: string }> = ({
     location.pathname === fullPath ||
     (hasChildren &&
       route.children?.some((child) => location.pathname.startsWith(`${fullPath}/${child.path}`)));
-  const userPermissions = useSelector((state: RootState) => state.auth.permissions);
+  const userPermissions = useSelector((state: RootState) => state.login.permissions);
 
   const hasPermission = (route: RouteItem): boolean => {
     if (!route.meta?.permissions) return true;

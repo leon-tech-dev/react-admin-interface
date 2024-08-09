@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
 const Header: React.FC = () => {
-  const username = useSelector((state: RootState) => state.auth.user);
+  const username = useSelector((state: RootState) => state.login.user);
 
   return (
     <header className="bg-white shadow-md p-4">

@@ -10,8 +10,8 @@ interface ProtectedRouteProps {
 }
 // This component will handle the auth check
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, meta }) => {
-  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
-  const userPermissions = useSelector((state: RootState) => state.auth.permissions);
+  const isAuthenticated = useSelector((state: RootState) => state.login.isAuthenticated);
+  const userPermissions = useSelector((state: RootState) => state.login.permissions);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;

@@ -2,8 +2,11 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import usePageTitle from '../../hooks/usePageTitle';
 
 const Layout: React.FC = () => {
+  // dynamic change page title name
+  usePageTitle();
   return (
     <div className="flex h-screen bg-gray-100">
       <Sidebar />

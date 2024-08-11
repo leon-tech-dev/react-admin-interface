@@ -1,22 +1,29 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { Box, CssBaseline } from '@mui/material';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import usePageTitle from '../../hooks/usePageTitle';
 
+const drawerWidth = 240;
+
 const Layout: React.FC = () => {
-  // dynamic change page title name
   usePageTitle();
+
   return (
-    <div className="flex h-screen bg-gray-100">
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
       <Sidebar />
-      <div className="flex flex-col flex-1 overflow-hidden">
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+      >
         <Header />
-        <main className="flex-1 p-6 overflow-auto" id="main-content">
+        <Box sx={{ mt: 2 }}>
           <Outlet />
-        </main>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

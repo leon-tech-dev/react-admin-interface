@@ -5,7 +5,7 @@ import Login from '../pages/Login';
 import routes, { RouteItem } from './routes';
 import ProtectedRoute from './ProtectedRoute';
 
-// Helper function to check if a route element is a React component
+// Check if a route element is a React component
 const isReactComponent = (element: unknown): element is ComponentType => {
   return (
     typeof element === 'function' ||
@@ -17,7 +17,7 @@ type CustomRouteObject = RouteObject & {
   meta?: RouteItem['meta'];
 };
 
-// This function will recursively create route objects
+// Recursively create route objects
 const createRoutes = (routes: RouteItem[]): CustomRouteObject[] => {
   return routes.map((route) => {
     const RouteElement = route.element;

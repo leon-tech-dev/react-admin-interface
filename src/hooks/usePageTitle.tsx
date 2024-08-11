@@ -32,7 +32,7 @@ const usePageTitle = (customTitle?: string) => {
   const title = customTitle || getRouteTitle();
 
   useEffect(() => {
-    const baseTitle = 'Your App Name';
+    const baseTitle = 'React Admin';
     document.title = title ? `${title} | ${baseTitle}` : baseTitle;
   }, [title]);
 

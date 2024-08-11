@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
-import { RootState } from '../../store';
+import { RootState } from '@/store';
 
 const Header: React.FC = () => {
   const username = useSelector((state: RootState) => state.login.user);

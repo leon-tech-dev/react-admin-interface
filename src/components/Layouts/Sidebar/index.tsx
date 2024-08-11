@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Drawer, Box, Typography } from '@mui/material';
-import routes, { RouteItem } from '../../../router/routes';
+import routes, { RouteItem } from '@/router/routes';
 import MenuItem from './MenuItem';
 
 const Sidebar: React.FC = () => {

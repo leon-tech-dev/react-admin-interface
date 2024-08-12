@@ -1,6 +1,8 @@
 import { lazy } from 'react';
-import { LayoutDashboard, Users, Settings, List, FileText } from 'lucide-react';
+// import { LayoutDashboard, Users, Settings, List, FileText } from 'lucide-react';
 import RootRedirect from './RootRedirect';
+
+import { icon } from './IconConfig';
 
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const UsersList = lazy(() => import('../pages/Users'));
@@ -12,7 +14,9 @@ export interface RouteItem {
   path: string;
   element?: React.LazyExoticComponent<() => JSX.Element> | React.FC;
   name: string;
-  icon?: React.ElementType;
+  // icon?: React.ElementType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon?: JSX.Element;
   children?: RouteItem[];
   meta?: {
     showInMenu: boolean;
@@ -35,7 +39,7 @@ const routes: RouteItem[] = [
     path: 'dashboard',
     element: Dashboard,
     name: 'Dashboard',
-    icon: LayoutDashboard,
+    icon: icon('dashboard'),
     meta: {
       showInMenu: true,
       requiresAuth: true,
@@ -45,7 +49,7 @@ const routes: RouteItem[] = [
     path: 'users',
     element: UsersList,
     name: 'Users',
-    icon: Users,
+    icon: icon('user'),
     meta: {
       showInMenu: true,
       requiresAuth: true,
@@ -55,7 +59,7 @@ const routes: RouteItem[] = [
   {
     path: 'reports',
     name: 'Reports',
-    icon: FileText,
+    // icon: FileText,
     meta: {
       showInMenu: true,
       requiresAuth: true,
@@ -65,7 +69,7 @@ const routes: RouteItem[] = [
         path: 'list',
         element: ReportsList,
         name: 'All Reports',
-        icon: List,
+        // icon: List,
         meta: {
           showInMenu: true,
           requiresAuth: true,
@@ -86,7 +90,7 @@ const routes: RouteItem[] = [
     path: 'settings',
     element: SettingsPage,
     name: 'Settings',
-    icon: Settings,
+    icon: icon('settings'),
     meta: {
       showInMenu: true,
       requiresAuth: true,

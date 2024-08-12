@@ -3,14 +3,13 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
 import './index.css';
+import ThemeProvider from '@/theme/index';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <App />
       </ThemeProvider>
     </Provider>

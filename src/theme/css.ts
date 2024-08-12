@@ -64,8 +64,6 @@ export const menuItem = (theme: Theme) => ({
   },
 });
 
-// ----------------------------------------------------------------------
-
 interface BgBlurProps {
   color?: string;
   blur?: number;
@@ -105,8 +103,6 @@ export function bgBlur(props?: BgBlurProps) {
   };
 }
 
-// ----------------------------------------------------------------------
-
 interface BgGradientProps {
   direction?: string;
   startColor?: string;
@@ -137,8 +133,6 @@ export function bgGradient(props?: BgGradientProps) {
     background: `linear-gradient(${direction}, ${startColor}, ${endColor})`,
   };
 }
-
-// ----------------------------------------------------------------------
 
 export function textGradient(value: string) {
   return {

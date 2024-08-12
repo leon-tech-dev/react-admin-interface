@@ -30,7 +30,7 @@ import Box from '@mui/material/Box';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Main from './Main';
-// import Header from './Header';
+import Header from './Header';
 
 import usePageTitle from '@/hooks/usePageTitle';
 
@@ -40,6 +40,7 @@ export default function Layout() {
 
   return (
     <>
+      <Header onOpenNav={() => setOpenNav(true)} />
       <Box
         sx={{
           minHeight: 1,
@@ -48,7 +49,6 @@ export default function Layout() {
         }}
       >
         <Sidebar openNav={openNav} onCloseNav={() => setOpenNav(false)} />
-
         <Main>
           <Outlet />
         </Main>

@@ -2,8 +2,6 @@ import { forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import { SxProps, Theme } from '@mui/material/styles';
 
-// ----------------------------------------------------------------------
-
 interface SvgColorProps {
   src: string;
   sx?: SxProps<Theme>;

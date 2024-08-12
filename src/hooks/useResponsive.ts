@@ -1,8 +1,6 @@
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// ----------------------------------------------------------------------
-
 type QueryType = 'up' | 'down' | 'between' | 'only';
 type BreakpointKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 

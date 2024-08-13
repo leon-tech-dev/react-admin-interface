@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Drawer, Box } from '@mui/material';
 import routes, { RouteItem } from '@/router/routes';
-// import MenuItem from './MenuItem';
 import Menu from './Menu';
 
 import { useResponsive } from '@/hooks/useResponsive';

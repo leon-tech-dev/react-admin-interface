@@ -76,7 +76,6 @@ export function bgBlur(props?: BgBlurProps) {
   const blur = props?.blur || 6;
   const opacity = props?.opacity || 0.8;
   const imgUrl = props?.imgUrl;
-  console.log(imgUrl);
 
   if (imgUrl) {
     return {

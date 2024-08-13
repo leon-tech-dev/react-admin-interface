@@ -79,8 +79,8 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     const themeOptions = {
       palette: palette(activeMode),
       typography,
-      shadows: shadows(),
-      customShadows: customShadows(),
+      shadows: shadows(activeMode),
+      customShadows: customShadows(activeMode),
       shape: { borderRadius: 8 },
     };
 

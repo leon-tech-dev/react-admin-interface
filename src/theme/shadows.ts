@@ -1,12 +1,15 @@
-// theme/shadows.ts
+// @ts-nocheck
 import { alpha, Shadows } from '@mui/material/styles';
+import { PaletteMode } from '@mui/material';
 
-import { grey } from './palette';
+import { lightPalette } from './lightPalette';
+import { darkPalette } from './darkPalette';
 
-export function shadows(): Shadows {
-  const transparent1 = alpha(grey[500], 0.2);
-  const transparent2 = alpha(grey[500], 0.14);
-  const transparent3 = alpha(grey[500], 0.12);
+export function shadows(mode: PaletteMode): Shadows {
+  const shadowGrey = mode === 'light' ? lightPalette.grey[500] : darkPalette.grey[500];
+  const transparent1 = alpha(shadowGrey, 0.2);
+  const transparent2 = alpha(shadowGrey, 0.14);
+  const transparent3 = alpha(shadowGrey, 0.12);
 
   return [
     'none',

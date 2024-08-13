@@ -32,7 +32,6 @@ type BgBlurReturn = {
 
 export default function Header({ onOpenNav }: HeaderProps) {
   const theme = useTheme();
-  console.log(theme.palette.background.default);
   const lgUp = useResponsive('up', 'lg');
 
   const renderContent = (

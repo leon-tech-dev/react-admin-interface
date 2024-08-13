@@ -1,12 +1,17 @@
+// @ts-nocheck
 import { alpha } from '@mui/material/styles';
+import { PaletteMode, PaletteOptions } from '@mui/material';
 
-import { grey, info, error, common, primary, success, warning, secondary } from './palette';
+import { lightPalette } from './lightPalette';
+import { darkPalette } from './darkPalette';
 
 export interface CustomShadows {
   [key: string]: string;
 }
 
-export function customShadows(): CustomShadows {
+export function customShadows(mode: PaletteMode): CustomShadows {
+  const paletteConfig = mode === 'light' ? lightPalette : darkPalette;
+  const { grey, info, error, common, primary, success, warning, secondary } = paletteConfig;
   const transparent = alpha(grey[500], 0.16);
 
   return {

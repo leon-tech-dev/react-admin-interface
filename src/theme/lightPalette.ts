@@ -175,7 +175,7 @@ export const componentColorsLight = {
     warningDisabledColor: 'rgb(255, 223, 158)',
   },
   TableCell: {
-    border: 'rgba(241, NaN, NaN, 1)', // Note: This value seems incorrect in the original CSS
+    border: 'rgba(241, 241, 241, 1)',
   },
   Tooltip: {
     bg: 'rgba(69, 79, 91, 0.92)',

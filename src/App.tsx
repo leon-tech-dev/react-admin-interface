@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store, initializeStore } from './store';
+import { initializeStore } from './store';
 import router from './router';
 
 function App() {
@@ -16,14 +15,10 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Or your custom loading component
+    return <div>Loading...</div>;
   }
 
-  return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,12 +1,10 @@
-// theme/index.tsx
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import {
-  createTheme,
-  ThemeProvider as MUIThemeProvider,
-  Theme,
-  ThemeOptions,
-} from '@mui/material/styles';
+import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import createTheme from '@mui/material/styles/createTheme';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '@/store';
+import { initializeTheme } from '@/store/slices/themeSlice';
 
 import { palette } from './palette';
 import { shadows } from './shadows';
@@ -20,6 +18,16 @@ declare module '@mui/material/styles' {
   }
   interface ThemeOptions {
     customShadows?: CustomShadows;
+  }
+
+  interface PaletteColor {
+    lighter?: string;
+    darker?: string;
+  }
+
+  interface SimplePaletteColorOptions {
+    lighter?: string;
+    darker?: string;
   }
   interface TypographyVariants {
     fontWeightSemiBold: number;
@@ -43,33 +51,57 @@ interface ThemeProviderProps {
 }
 
 export default function ThemeProvider({ children }: ThemeProviderProps) {
-  const memoizedValue = useMemo<ThemeOptions>(
-    () => ({
-      palette: palette(),
+  const dispatch = useDispatch<AppDispatch>();
+  const { mode, systemPreference } = useSelector((state: RootState) => state.theme);
+  useEffect(() => {
+    dispatch(initializeTheme());
+  }, [dispatch]);
+  // const memoizedValue = useMemo<ThemeOptions>(
+  //   () => ({
+  //     palette: palette(mode),
+  //     typography,
+  //     shadows: shadows(),
+  //     customShadows: customShadows(),
+  //     shape: { borderRadius: 8 },
+  //   }),
+  //   [mode]
+  // );
+
+  // const theme = createTheme(memoizedValue);
+
+  // const themeWithOverrides = useMemo(() => {
+  //   const components = overrides(theme);
+  //   return createTheme(theme, { components });
+  // }, [theme]);
+  const theme = useMemo(() => {
+    const activeMode = mode === 'system' ? systemPreference : mode;
+
+    const themeOptions = {
+      palette: palette(activeMode),
       typography,
       shadows: shadows(),
       customShadows: customShadows(),
       shape: { borderRadius: 8 },
-    }),
-    []
-  );
+    };
 
-  const theme = createTheme(memoizedValue);
+    let theme = createTheme(themeOptions);
+    theme = createTheme(theme, { components: overrides(theme) });
 
-  const themeWithOverrides = useMemo(() => {
-    const components = overrides(theme);
-    return createTheme(theme, { components });
-  }, [theme]);
+    return theme;
+  }, [mode, systemPreference]);
 
   return (
-    <MUIThemeProvider theme={themeWithOverrides}>
+    <MUIThemeProvider theme={theme}>
       <CssBaseline />
       {children}
     </MUIThemeProvider>
   );
 }
 
-// If you need to use the theme elsewhere in your app:
-export type ExtendedTheme = Theme & {
-  customShadows: CustomShadows;
-};
+// export default function ThemeProvider({ children }: ThemeProviderProps) {
+//   return (
+//     <ThemeContextProvider>
+//       <ThemeProviderContent>{children}</ThemeProviderContent>
+//     </ThemeContextProvider>
+//   );
+// }

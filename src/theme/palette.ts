@@ -1,5 +1,6 @@
-import { alpha, PaletteOptions } from '@mui/material/styles';
-
+import { alpha, PaletteOptions, PaletteMode } from '@mui/material';
+import { getDarkPalette } from './darkPalette';
+import { getLightPalette } from './lightPalette';
 type ColorRange = {
   lighter: string;
   light: string;
@@ -91,49 +92,105 @@ export const action = {
   disabledOpacity: 0.48,
 };
 
-type BaseTheme = {
-  primary: ColorRange;
-  secondary: ColorRange;
-  info: ColorRange;
-  success: ColorRange;
-  warning: ColorRange;
-  error: ColorRange;
-  grey: typeof grey;
-  common: typeof common;
-  divider: string;
-  action: typeof action;
-};
+// type BaseTheme = {
+//   primary: ColorRange;
+//   secondary: ColorRange;
+//   info: ColorRange;
+//   success: ColorRange;
+//   warning: ColorRange;
+//   error: ColorRange;
+//   grey: typeof grey;
+//   common: typeof common;
+//   divider: string;
+//   action: typeof action;
+// };
 
-const base: BaseTheme = {
-  primary,
-  secondary,
-  info,
-  success,
-  warning,
-  error,
-  grey,
-  common,
-  divider: alpha(grey[500], 0.2),
-  action,
-};
+// const base: BaseTheme = {
+//   primary,
+//   secondary,
+//   info,
+//   success,
+//   warning,
+//   error,
+//   grey,
+//   common,
+//   divider: alpha(grey[500], 0.2),
+//   action,
+// };
 
-export function palette(): PaletteOptions {
-  return {
-    ...base,
-    mode: 'light',
-    text: {
-      primary: grey[800],
-      secondary: grey[600],
-      disabled: grey[500],
-    },
-    background: {
-      paper: '#FFFFFF',
-      default: grey[100],
-      neutral: grey[200],
-    },
-    action: {
-      ...base.action,
-      active: grey[600],
-    },
-  };
+// export function palette(): PaletteOptions {
+//   return {
+//     ...base,
+//     mode: 'light',
+//     text: {
+//       primary: grey[800],
+//       secondary: grey[600],
+//       disabled: grey[500],
+//     },
+//     background: {
+//       paper: '#FFFFFF',
+//       default: grey[100],
+//       neutral: grey[200],
+//     },
+//     action: {
+//       ...base.action,
+//       active: grey[600],
+//     },
+//   };
+// }
+export function palette(mode: PaletteMode): PaletteOptions {
+  // const light: PaletteOptions = {
+  //   mode: 'light',
+  //   primary: { ...primary },
+  //   secondary: { ...secondary },
+  //   info: { ...info },
+  //   success: { ...success },
+  //   warning: { ...warning },
+  //   error: { ...error },
+  //   grey: { ...grey },
+  //   text: {
+  //     primary: grey[800],
+  //     secondary: grey[600],
+  //     disabled: grey[500],
+  //   },
+  //   background: {
+  //     paper: '#FFFFFF',
+  //     default: grey[100],
+  //     neutral: grey[200],
+  //   },
+  //   action: {
+  //     ...action,
+  //     active: grey[600],
+  //   },
+  //   divider: alpha(grey[500], 0.2),
+  // };
+
+  // const dark: PaletteOptions = {
+  //   mode: 'dark',
+  //   primary: { ...primary },
+  //   secondary: { ...secondary },
+  //   info: { ...info },
+  //   success: { ...success },
+  //   warning: { ...warning },
+  //   error: { ...error },
+  //   grey: { ...grey },
+  //   text: {
+  //     primary: '#FFFFFF',
+  //     secondary: grey[500],
+  //     disabled: grey[600],
+  //   },
+  //   background: {
+  //     paper: grey[800],
+  //     default: grey[900],
+  //     neutral: alpha(grey[500], 0.16),
+  //   },
+  //   action: {
+  //     ...action,
+  //     active: grey[500],
+  //   },
+  //   divider: alpha(grey[500], 0.24),
+  // };
+
+  // return mode === 'light' ? light : dark;
+  return mode === 'light' ? getLightPalette() : getDarkPalette();
 }

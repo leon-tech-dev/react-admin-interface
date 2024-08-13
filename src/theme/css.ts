@@ -20,13 +20,13 @@ export const paper = ({ theme, bgcolor, dropdown }: PaperProps) => ({
       color: bgcolor,
     }),
   }),
-  backgroundImage: 'url(/assets/cyan-blur.png), url(/assets/red-blur.png)',
-  backgroundRepeat: 'no-repeat, no-repeat',
-  backgroundPosition: 'top right, left bottom',
-  backgroundSize: '50%, 50%',
-  ...(theme.direction === 'rtl' && {
-    backgroundPosition: 'top left, right bottom',
-  }),
+  // backgroundImage: 'url(/assets/cyan-blur.png), url(/assets/red-blur.png)',
+  // backgroundRepeat: 'no-repeat, no-repeat',
+  // backgroundPosition: 'top right, left bottom',
+  // backgroundSize: '50%, 50%',
+  // ...(theme.direction === 'rtl' && {
+  //   backgroundPosition: 'top left, right bottom',
+  // }),
   ...(dropdown && {
     padding: theme.spacing(0.5),
     boxShadow: theme.customShadows.dropdown,
@@ -76,6 +76,7 @@ export function bgBlur(props?: BgBlurProps) {
   const blur = props?.blur || 6;
   const opacity = props?.opacity || 0.8;
   const imgUrl = props?.imgUrl;
+  console.log(imgUrl);
 
   if (imgUrl) {
     return {

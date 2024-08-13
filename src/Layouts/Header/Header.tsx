@@ -12,11 +12,13 @@ import { bgBlur } from '@/theme/css';
 
 import Iconify from '@/components/iconify';
 
-import SearchBar from './SearchBar';
+// import SearchBar from './SearchBar';
 import { NAV, HEADER } from '../ConfigLayout';
 import AccountPopover from './AccountPopover';
 import LanguagePopover from './LanguagePopover';
 import NotificationsPopover from './NotificationsPopover';
+import { ThemeModeSwitch } from './DarkModeSwitch';
+// import { RootState } from '@/store';
 
 interface HeaderProps {
   onOpenNav: () => void;
@@ -30,7 +32,7 @@ type BgBlurReturn = {
 
 export default function Header({ onOpenNav }: HeaderProps) {
   const theme = useTheme();
-
+  console.log(theme.palette.background.default);
   const lgUp = useResponsive('up', 'lg');
 
   const renderContent = (
@@ -41,11 +43,12 @@ export default function Header({ onOpenNav }: HeaderProps) {
         </IconButton>
       )}
 
-      <SearchBar />
+      {/* <SearchBar /> */}
 
       <Box sx={{ flexGrow: 1 }} />
 
       <Stack direction="row" alignItems="center" spacing={1}>
+        <ThemeModeSwitch />
         <LanguagePopover />
         <NotificationsPopover />
         <AccountPopover />
@@ -60,11 +63,14 @@ export default function Header({ onOpenNav }: HeaderProps) {
     transition: theme.transitions.create(['height'], {
       duration: theme.transitions.duration.shorter,
     }),
+    backgroundImage: 'none',
     ...(lgUp && {
       width: `calc(100% - ${NAV.WIDTH + 1}px)`,
       height: HEADER.H_DESKTOP,
     }),
-    ...(bgBlur({ color: theme.palette.background.default }) as BgBlurReturn),
+    ...(bgBlur({
+      color: theme.palette.background.default,
+    }) as BgBlurReturn),
   };
 
   return (

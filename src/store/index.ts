@@ -1,21 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loginReducer, { setUserInfo } from './login';
+import loginReducer, { setUserInfo } from './slices/loginSlice';
+import themeReducer from './slices/themeSlice';
 import localforage from 'localforage';
 
-// Configure localforage
 localforage.config({
-  name: 'myApp',
-  storeName: 'myAppStore',
+  name: 'reactAdmin',
+  storeName: 'reactAdminStore',
 });
 
 export const store = configureStore({
   reducer: {
     login: loginReducer,
-    // Add other reducers here as needed
+    theme: themeReducer,
   },
 });
 
-// Function to initialize the store with persisted data
 export const initializeStore = async () => {
   try {
     const persistedState = await localforage.getItem('userInfo');
@@ -28,7 +27,6 @@ export const initializeStore = async () => {
   }
 };
 
-// Subscribe to store changes and save to localforage
 store.subscribe(() => {
   const state = store.getState();
   const loginState = state.login;

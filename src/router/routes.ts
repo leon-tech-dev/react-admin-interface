@@ -1,8 +1,7 @@
 import { lazy } from 'react';
-// import { LayoutDashboard, Users, Settings, List, FileText } from 'lucide-react';
-import RootRedirect from './RootRedirect';
+import { RootRedirect } from './components';
 
-import { icon } from './IconConfig';
+import { icon } from './components';
 
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const UsersList = lazy(() => import('../pages/Users'));

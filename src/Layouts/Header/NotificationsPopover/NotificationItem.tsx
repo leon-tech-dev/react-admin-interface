@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Typography, ListItemText, ListItemAvatar, ListItemButton } from '@mui/material';
 
-import { fToNow } from '@/lib/FormatTime';
+import { fToNow } from '@/lib/formatTime';
 import Iconify from '@/components/iconify';
 
 import type { Notification } from './NotificationsPopover';

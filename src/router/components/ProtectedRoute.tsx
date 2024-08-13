@@ -1,14 +1,14 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
-import { RouteItem } from '../router/routes';
+import { RootState } from '@/store';
+import { RouteItem } from '@/router/routes';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
   meta?: RouteItem['meta'];
 }
-// This component will handle the auth check
+
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, meta }) => {
   const isAuthenticated = useSelector((state: RootState) => state.login.isAuthenticated);
   const userPermissions = useSelector((state: RootState) => state.login.permissions);

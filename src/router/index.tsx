@@ -1,9 +1,9 @@
 import { createBrowserRouter, Outlet, RouteObject } from 'react-router-dom';
 import { Suspense, ComponentType } from 'react';
-import Layout from '../components/Layouts';
+import Layout from '../Layouts';
 import Login from '../pages/Login';
 import routes, { RouteItem } from './routes';
-import ProtectedRoute from './ProtectedRoute';
+import { ProtectedRoute } from './components';
 
 // Check if a route element is a React component
 const isReactComponent = (element: unknown): element is ComponentType => {

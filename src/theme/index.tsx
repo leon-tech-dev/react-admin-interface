@@ -10,7 +10,7 @@ import { palette } from './palette';
 import { shadows } from './shadows';
 import { overrides } from './overrides';
 import { typography } from './typography';
-import { customShadows, CustomShadows } from './custom-shadows';
+import { customShadows, type CustomShadows } from './custom-shadows';
 
 declare module '@mui/material/styles' {
   interface Theme {

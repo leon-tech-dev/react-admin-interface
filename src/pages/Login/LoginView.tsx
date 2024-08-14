@@ -14,13 +14,11 @@ import { alpha, useTheme, Theme } from '@mui/material/styles';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { useRouter } from '@/router/hooks';
-// import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '@/store/slices/loginSlice';
 
 import { bgGradient } from '@/theme/css';
-
-// import Logo from 'src/components/logo';
+import Logo from '@/components/Logo';
 import Iconify from '@/components/iconify';
 
 export default function LoginView() {
@@ -98,6 +96,13 @@ export default function LoginView() {
         height: 1,
       }}
     >
+      <Logo
+        sx={{
+          position: 'fixed',
+          top: { xs: 16, md: 24 },
+          left: { xs: 16, md: 24 },
+        }}
+      />
       <Stack alignItems="center" justifyContent="center" sx={{ height: 1 }}>
         <Card
           sx={{

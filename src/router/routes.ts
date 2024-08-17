@@ -8,15 +8,11 @@ const UsersList = lazy(() => import('../pages/Users'));
 const SettingsPage = lazy(() => import('../pages/Settings'));
 const ProductPage = lazy(() => import('../pages/Product'));
 const BlogPage = lazy(() => import('../pages/Blog'));
-// const ReportsList = lazy(() => import('../pages/Reports/List'));
-// const ReportDetails = lazy(() => import('../pages/Reports/Details'));
 
 export interface RouteItem {
   path: string;
   element?: React.LazyExoticComponent<() => JSX.Element> | React.FC;
   name: string;
-  // icon?: React.ElementType;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon?: JSX.Element;
   children?: RouteItem[];
   meta?: {

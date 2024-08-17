@@ -1,9 +1,11 @@
-import { createBrowserRouter, Outlet, RouteObject } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouteObject, Navigate } from 'react-router-dom';
 import { Suspense, ComponentType } from 'react';
 import Layout from '../Layouts';
 import Login from '../pages/Login';
 import routes, { RouteItem } from './routes';
 import { ProtectedRoute } from './components';
+
+import ErrorPage from '@/pages/Error';
 
 // Check if a route element is a React component
 const isReactComponent = (element: unknown): element is ComponentType => {
@@ -15,6 +17,7 @@ const isReactComponent = (element: unknown): element is ComponentType => {
 
 type CustomRouteObject = RouteObject & {
   meta?: RouteItem['meta'];
+  name?: string;
 };
 
 // Recursively create route objects
@@ -61,6 +64,28 @@ const router = createBrowserRouter([
     path: '/',
     element: <Layout />,
     children: createRoutes(routes),
+  },
+  {
+    path: 'error',
+    children: [
+      {
+        path: '404',
+        element: <ErrorPage errorType="404" />,
+      },
+      // {
+      //   path: '403',
+      //   element: <ErrorPage errorType="403" />,
+      // },
+    ],
+  },
+  {
+    path: '*',
+    element: (
+      <ProtectedRoute meta={{ showInMenu: false, requiresAuth: true }}>
+        <Navigate to="/error/404" replace />
+        {/* <ErrorPage errorType="404" /> */}
+      </ProtectedRoute>
+    ),
   },
 ]);
 

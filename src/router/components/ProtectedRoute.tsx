@@ -12,7 +12,6 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, meta }) => {
   const isAuthenticated = useSelector((state: RootState) => state.login.isAuthenticated);
   const userPermissions = useSelector((state: RootState) => state.login.permissions);
-  console.log(!meta?.requiresAuth);
   if (meta?.requiresAuth && !isAuthenticated) {
     return <Navigate to="/login" replace />;
   }

@@ -21,7 +21,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, meta }) => {
     meta?.permissions &&
     !meta.permissions.every((permission) => userPermissions.includes(permission))
   ) {
-    return <Navigate to="/dashboard" state={{ from: location }} replace />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   return <>{children}</>;

@@ -6,7 +6,7 @@ import { icon } from './components';
 const Dashboard = lazy(() => import('../pages/Dashboard/view'));
 const UsersList = lazy(() => import('../pages/Users/view'));
 const SettingsPage = lazy(() => import('../pages/Settings'));
-const ProductPage = lazy(() => import('../pages/Product'));
+const ProductPage = lazy(() => import('../pages/Product/view'));
 const BlogPage = lazy(() => import('../pages/Blog/view'));
 
 export interface RouteItem {

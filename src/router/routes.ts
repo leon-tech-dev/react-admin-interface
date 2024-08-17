@@ -6,8 +6,10 @@ import { icon } from './components';
 const Dashboard = lazy(() => import('../pages/Dashboard'));
 const UsersList = lazy(() => import('../pages/Users'));
 const SettingsPage = lazy(() => import('../pages/Settings'));
-const ReportsList = lazy(() => import('../pages/Reports/List'));
-const ReportDetails = lazy(() => import('../pages/Reports/Details'));
+const ProductPage = lazy(() => import('../pages/Product'));
+const BlogPage = lazy(() => import('../pages/Blog'));
+// const ReportsList = lazy(() => import('../pages/Reports/List'));
+// const ReportDetails = lazy(() => import('../pages/Reports/Details'));
 
 export interface RouteItem {
   path: string;
@@ -56,34 +58,55 @@ const routes: RouteItem[] = [
     },
   },
   {
-    path: 'reports',
-    name: 'Reports',
-    // icon: FileText,
+    path: 'blogs',
+    element: BlogPage,
+    name: 'Blog',
+    icon: icon('blog'),
+    meta: {
+      showInMenu: true,
+      requiresAuth: true,
+      permissions: ['manage_users'],
+    },
+  },
+  // {
+  //   path: 'reports',
+  //   name: 'Reports',
+  //   // icon: FileText,
+  //   meta: {
+  //     showInMenu: true,
+  //     requiresAuth: true,
+  //   },
+  //   children: [
+  //     {
+  //       path: 'list',
+  //       element: ReportsList,
+  //       name: 'All Reports',
+  //       // icon: List,
+  //       meta: {
+  //         showInMenu: true,
+  //         requiresAuth: true,
+  //       },
+  //     },
+  //     {
+  //       path: 'details/:id',
+  //       element: ReportDetails,
+  //       name: 'Report Details',
+  //       meta: {
+  //         showInMenu: false,
+  //         requiresAuth: true,
+  //       },
+  //     },
+  //   ],
+  // },
+  {
+    path: 'products',
+    element: ProductPage,
+    name: 'Product',
+    icon: icon('cart'),
     meta: {
       showInMenu: true,
       requiresAuth: true,
     },
-    children: [
-      {
-        path: 'list',
-        element: ReportsList,
-        name: 'All Reports',
-        // icon: List,
-        meta: {
-          showInMenu: true,
-          requiresAuth: true,
-        },
-      },
-      {
-        path: 'details/:id',
-        element: ReportDetails,
-        name: 'Report Details',
-        meta: {
-          showInMenu: false,
-          requiresAuth: true,
-        },
-      },
-    ],
   },
   {
     path: 'settings',

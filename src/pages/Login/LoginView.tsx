@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import LoadingButton from '@mui/lab/LoadingButton';
+import Snackbar from '@mui/material/Snackbar';
 import { alpha, useTheme, Theme } from '@mui/material/styles';
 import InputAdornment from '@mui/material/InputAdornment';
 
@@ -29,12 +30,16 @@ export default function LoginView() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [open, setOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(login({ username, permissions: ['manage_users'] }));
     router.push('/dashboard');
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const renderForm = (
@@ -126,6 +131,7 @@ export default function LoginView() {
               size="large"
               color="inherit"
               variant="outlined"
+              onClick={() => setOpen(true)}
               sx={{ borderColor: alpha(theme.palette.grey[500], 0.16) }}
             >
               <Iconify icon="eva:google-fill" color="#DF3E30" />
@@ -136,9 +142,10 @@ export default function LoginView() {
               size="large"
               color="inherit"
               variant="outlined"
+              onClick={() => setOpen(true)}
               sx={{ borderColor: alpha(theme.palette.grey[500], 0.16) }}
             >
-              <Iconify icon="eva:facebook-fill" color="#1877F2" />
+              <Iconify icon="eva:github-fill" color="#1877F2" />
             </Button>
 
             <Button
@@ -146,6 +153,7 @@ export default function LoginView() {
               size="large"
               color="inherit"
               variant="outlined"
+              onClick={() => setOpen(true)}
               sx={{ borderColor: alpha(theme.palette.grey[500], 0.16) }}
             >
               <Iconify icon="eva:twitter-fill" color="#1C9CEA" />
@@ -161,6 +169,14 @@ export default function LoginView() {
           {renderForm}
         </Card>
       </Stack>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        autoHideDuration={3000}
+        color="primary"
+        open={open}
+        onClose={handleClose}
+        message="Coming soon..."
+      />
     </Box>
   );
 }

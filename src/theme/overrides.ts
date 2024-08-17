@@ -141,5 +141,13 @@ export function overrides(theme: Theme) {
         },
       },
     },
+    MuiSnackbarContent: {
+      styleOverrides: {
+        root: {
+          backgroundColor: theme.palette.background.default,
+          color: theme.palette.primary.main,
+        },
+      },
+    },
   };
 }

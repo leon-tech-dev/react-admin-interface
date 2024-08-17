@@ -1,6 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { alpha } from '@mui/material/styles';
-import { PaletteMode, PaletteOptions } from '@mui/material';
+import { PaletteMode } from '@mui/material';
 
 import { lightPalette } from './lightPalette';
 import { darkPalette } from './darkPalette';

@@ -7,7 +7,7 @@ const Dashboard = lazy(() => import('../pages/Dashboard/view'));
 const UsersList = lazy(() => import('../pages/Users/view'));
 const SettingsPage = lazy(() => import('../pages/Settings'));
 const ProductPage = lazy(() => import('../pages/Product'));
-const BlogPage = lazy(() => import('../pages/Blog'));
+const BlogPage = lazy(() => import('../pages/Blog/view'));
 
 export interface RouteItem {
   path: string;

@@ -1,4 +1,4 @@
-import { RouteItem } from '@/router/routes';
+import { RouteItem } from '@/routes/routes';
 
 export const hasPermission = (route: RouteItem, permissions: string[]): boolean => {
   if (!route.meta?.permissions) return true;

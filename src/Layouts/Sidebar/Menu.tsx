@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Typography, Stack } from '@mui/material';
-import { RouteItem } from '@/router/routes';
+import { RouteItem } from '@/routes/routes';
 import MenuItem from './MenuItem';
 import Scrollbar from '@/components/Scrollbar';
 import { RouterLink } from '@/routes/components';

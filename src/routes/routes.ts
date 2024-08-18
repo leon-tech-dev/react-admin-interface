@@ -20,6 +20,10 @@ export interface RouteItem {
     showInMenu: boolean;
     requiresAuth: boolean;
     permissions?: string[];
+    breadcrumbs?: boolean;
+    external?: boolean;
+    url?: string;
+    target?: boolean;
   };
 }
 

@@ -3,7 +3,7 @@ import { List, Typography, Stack } from '@mui/material';
 import { RouteItem } from '@/router/routes';
 import MenuItem from './MenuItem';
 import Scrollbar from '@/components/Scrollbar';
-import { RouterLink } from '@/router/components';
+import { RouterLink } from '@/routes/components';
 interface MenuProps {
   menuRoutes: RouteItem[];
 }

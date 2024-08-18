@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { SxProps, Theme } from '@mui/material/styles';
-import { RouterLink } from '@/router/components';
+import { RouterLink } from '@/routes/components';
 
 interface LogoProps {
   disabledLink?: boolean;

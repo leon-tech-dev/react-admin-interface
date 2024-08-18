@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { Box, List, Collapse, ListItemButton, styled } from '@mui/material';
 import { RootState } from '@/store';
-import { RouteItem } from '@/router/routes';
+import { RouteItem } from '@/routes/routes';
 import { matchPath } from '@/lib/routeHelpers';
 import { hasPermission } from '@/lib/authHelpers';
 
@@ -86,7 +86,7 @@ const MenuItem: React.FC<{
         {listItemContent}
       </ListItemButton>
       {hasChildren && (
-        <Collapse in={isOpen} timeout="auto" unmountOnExit>
+        <Collapse sx={{ borderColor: 'red' }} in={isOpen} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             {route.children?.map((childRoute, index) => (
               <MenuItem

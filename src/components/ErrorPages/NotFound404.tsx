@@ -2,8 +2,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { RouterLink } from '@/router/components';
-import Logo from '@/components/Logo';
+import { RouterLink } from '@/routes/components';
+// import Logo from '@/components/Logo';
 
 export default function NotFoundView(): JSX.Element {
   const renderHeader = (
@@ -18,7 +18,7 @@ export default function NotFoundView(): JSX.Element {
         p: (theme) => ({ xs: theme.spacing(3, 3, 0), sm: theme.spacing(5, 5, 0) }),
       }}
     >
-      <Logo />
+      {/* <Logo /> */}
     </Box>
   );
 

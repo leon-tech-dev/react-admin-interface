@@ -4,7 +4,7 @@ import routes, { RouteItem } from '@/router/routes';
 import Menu from './Menu';
 
 import { useResponsive } from '@/hooks/useResponsive';
-import { usePathname } from '@/router/hooks/usePathname';
+import { usePathname } from '@/routes/hooks/usePathname';
 import { NAV } from '../ConfigLayout';
 
 type SidebarProps = {

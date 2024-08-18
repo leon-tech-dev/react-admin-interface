@@ -8,6 +8,7 @@ const UsersList = lazy(() => import('../pages/Users/view'));
 const SettingsPage = lazy(() => import('../pages/Settings'));
 const ProductPage = lazy(() => import('../pages/Product/view'));
 const BlogPage = lazy(() => import('../pages/Blog/view'));
+const ErrorPage = lazy(() => import('../pages/Error'));
 
 export interface RouteItem {
   path: string;
@@ -113,6 +114,21 @@ const routes: RouteItem[] = [
       showInMenu: true,
       requiresAuth: true,
     },
+  },
+  {
+    path: 'error',
+    name: 'Error',
+    meta: {
+      showInMenu: true,
+      requiresAuth: true,
+    },
+    children: [
+      {
+        path: '404',
+        name: '404',
+        element: ErrorPage,
+      },
+    ],
   },
 ];
 

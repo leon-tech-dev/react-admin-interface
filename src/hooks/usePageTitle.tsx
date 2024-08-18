@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import routes, { RouteItem } from '../router/routes';
+import routes, { RouteItem } from '../routes/routes';
 
 const usePageTitle = (customTitle?: string) => {
   const location = useLocation();

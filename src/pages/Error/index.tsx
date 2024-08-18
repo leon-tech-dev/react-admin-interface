@@ -2,10 +2,10 @@ import NotFoundView from '@/components/ErrorPages/NotFound404';
 
 type ErrorType = '400' | '401' | '403' | '404' | '500' | '503';
 export interface ErrorPageProps {
-  errorType: ErrorType;
+  errorType?: ErrorType;
 }
 
-const ErrorPage: React.FC<ErrorPageProps> = ({ errorType }) => {
+const ErrorPage: React.FC<ErrorPageProps> = ({ errorType = '404' }) => {
   switch (errorType) {
     // case '400':
     //   return <BadRequest400 />;
